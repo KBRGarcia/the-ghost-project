@@ -105,7 +105,7 @@ export default function About() {
                 />
                 <div style={{ position: "relative", width: "220px", height: "220px" }}>
                   <Image
-                    src="/ghost-logo.png"
+                    src="/the-ghost-logo-mini-whitout-background.png"
                     alt="The Ghost Logo"
                     fill
                     className="object-contain"

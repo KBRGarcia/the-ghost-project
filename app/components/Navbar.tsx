@@ -58,7 +58,7 @@ export default function Navbar() {
         >
           <div style={{ position: "relative", width: "40px", height: "40px" }}>
             <Image
-              src="/ghost-logo.png"
+              src="/the-ghost-logo-mini-whitout-background.png"
               alt="The Ghost Logo"
               fill
               className="object-contain"

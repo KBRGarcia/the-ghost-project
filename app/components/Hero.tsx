@@ -263,7 +263,7 @@ export default function Hero() {
               }}
             />
             <Image
-              src="/ghost-logo.png"
+              src="/the-ghost-logo.png"
               alt="The Ghost — Equipo de Desarrollo de Software"
               fill
               className="object-contain"
