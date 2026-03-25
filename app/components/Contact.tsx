@@ -88,7 +88,7 @@ export default function Contact() {
 
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+        <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: "4rem" }}>
           <span
             style={{
               display: "inline-block",
@@ -125,7 +125,7 @@ export default function Contact() {
           style={{ display: "grid", gridTemplateColumns: "2fr 3fr", gap: "2.5rem" }}
         >
           {/* Left: Contact Info */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          <div className="animate-on-scroll" style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
             <div
               style={{
                 padding: "1.75rem",
@@ -225,7 +225,7 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div>
+          <div className="animate-on-scroll">
             {submitted ? (
               <div
                 style={{

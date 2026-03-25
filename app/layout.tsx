@@ -38,6 +38,8 @@ export const metadata: Metadata = {
   },
 };
 
+import SystemAnimationWrapper from "./components/SystemAnimationWrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,7 +51,9 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-ghost-dark text-ghost-text antialiased">
-        {children}
+        <SystemAnimationWrapper>
+          {children}
+        </SystemAnimationWrapper>
       </body>
     </html>
   );

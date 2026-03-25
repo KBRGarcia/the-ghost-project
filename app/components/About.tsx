@@ -62,7 +62,7 @@ export default function About() {
           }}
         >
           {/* Left: Logo with rings */}
-          <div className="about-logo" style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+          <div className="about-logo animate-on-scroll" style={{ flex: 1, display: "flex", justifyContent: "center" }}>
             <div style={{ position: "relative", display: "inline-block" }}>
               {/* Outer spinning rings */}
               <div
@@ -174,7 +174,7 @@ export default function About() {
           </div>
 
           {/* Right: Content */}
-          <div className="about-content" style={{ flex: 1 }}>
+          <div className="about-content animate-on-scroll" style={{ flex: 1 }}>
             <span
               style={{
                 display: "inline-block",

@@ -55,7 +55,7 @@ export default function Technologies() {
 
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+        <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: "4rem" }}>
           <span
             style={{
               display: "inline-block",
@@ -98,7 +98,7 @@ export default function Technologies() {
           {techCategories.map((cat) => (
             <div
               key={cat.category}
-              className="card-glow"
+              className="card-glow animate-on-scroll"
               style={{
                 borderRadius: "1rem",
                 border: `1px solid ${cat.border}`,

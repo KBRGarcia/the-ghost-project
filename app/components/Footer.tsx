@@ -47,7 +47,7 @@ export default function Footer() {
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <div
-          className="footer-grid"
+          className="footer-grid animate-on-scroll"
           style={{
             display: "grid",
             gridTemplateColumns: "2fr 1fr 1fr",

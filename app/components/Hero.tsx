@@ -79,7 +79,7 @@ export default function Hero() {
         className="hero-inner"
       >
         {/* Text Content */}
-        <div style={{ flex: 1 }} className="hero-text">
+        <div style={{ flex: 1 }} className="hero-text animate-on-scroll">
           {/* Badge */}
           <div
             style={{
@@ -235,7 +235,7 @@ export default function Hero() {
 
         {/* Logo / Image */}
         <div
-          className="hero-image"
+          className="hero-image animate-on-scroll"
           style={{
             flex: 1,
             display: "flex",

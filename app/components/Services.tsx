@@ -79,7 +79,7 @@ export default function Services() {
 
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+        <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: "4rem" }}>
           <span
             style={{
               display: "inline-block",
@@ -124,7 +124,7 @@ export default function Services() {
             return (
               <article
                 key={service.title}
-                className="card-glow"
+                className="card-glow animate-on-scroll"
                 style={{
                   backgroundColor: "#1A1A1A",
                   border: "1px solid rgba(42,42,42,0.6)",
