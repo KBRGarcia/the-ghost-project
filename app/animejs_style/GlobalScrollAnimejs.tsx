@@ -3,10 +3,27 @@
 import { useEffect, useRef } from "react";
 import { animate } from "animejs";
 
-export function useGlobalScrollAnimation() {
+export function useGlobalScrollAnimation(isReady: boolean) {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // 1. Ocultamos los elementos inmediatamente si el preloader aún está activo
   useEffect(() => {
+    if (!isReady) {
+      const elements = document.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => {
+        const htmlEl = el as HTMLElement;
+        if (htmlEl.dataset.animated !== "true") {
+          htmlEl.style.opacity = "0"; 
+          htmlEl.style.transform = "translateY(40px)";
+        }
+      });
+    }
+  }, [isReady]);
+
+  // 2. Iniciamos el observer solo cuando isReady es true
+  useEffect(() => {
+    if (!isReady) return;
+
     // Definir opciones del observer
     const options = {
       root: null,
@@ -73,5 +90,5 @@ export function useGlobalScrollAnimation() {
         observerRef.current.disconnect();
       }
     };
-  }, []);
+  }, [isReady]);
 }
