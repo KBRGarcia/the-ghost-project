@@ -23,6 +23,24 @@ Este proyecto se rige por versiones estrictas de sus dependencias base. No asuma
 - **Concisión:** El modelo debe dar respuestas compactas y directas al punto. Proporcionar el código útil y, si es necesaria una explicación, hacerla o mediante comentarios cortos en el archivo o en viñetas puntuales.
 - **Validar antes de Destruir:** Nunca refactorizar o sobrescribir de manera masiva código sin antes haber leído el archivo correspondiente (usando las herramientas de lectura de archivos). 
 
+## 4. Convenciones de Control de Versiones (Git)
+**Formato estándar (Conventional Commits):**
+`<type>(<scope>): <subject>`
+
+- **type:** Indica el tipo de cambio. Ejemplos:
+  - `feat`: Nueva funcionalidad.
+  - `fix`: Corrección de bug.
+  - `docs`: Cambios en documentación.
+  - `style`: Cambios de estilo (espacios, indentación).
+  - `refactor`: Refactorización sin cambios de comportamiento.
+  - `test`: Añadir o corregir pruebas.
+  - `chore`: Mantenimiento (actualización de dependencias, etc.).
+
+- **scope:** Opcional. Describe la parte del código afectada (ej: auth, ui, api).
+- **subject:** Breve descripción en imperativo, presente, sin punto final y con primera letra mayúscula. 
+
+- *Ejemplo:* `feat(auth): Se añadió el inicio de sesión con Google`
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
