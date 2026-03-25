@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-import SystemAnimationWrapper from "./components/SystemAnimationWrapper";
+import SystemAnimationWrapper from "./animejs_style/SystemAnimationWrapper";
 
 export default function RootLayout({
   children,

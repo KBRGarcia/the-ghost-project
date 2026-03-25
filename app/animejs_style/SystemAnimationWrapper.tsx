@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useGlobalScrollAnimation } from "../animejs_style/GlobalScrollAnimejs";
-import Preloader from "./Preloader";
+import Preloader from "../components/Preloader";
 
 interface SystemAnimationWrapperProps {
   readonly children: React.ReactNode;
