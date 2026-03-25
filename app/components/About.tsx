@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Ghost, Zap, ShieldCheck, Handshake, Globe } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { useRotateLogoAnimation } from "../animejs_style/RotateLogoAnimejs";
 
 interface Value {
   icon: LucideIcon;
@@ -38,9 +39,12 @@ const values: Value[] = [
 ];
 
 export default function About() {
+  const { rootRef, handleLogoClick } = useRotateLogoAnimation<HTMLElement>(".ghost-logo");
+
   return (
     <section
       id="nosotros"
+      ref={rootRef}
       style={{
         padding: "7rem 1.5rem",
         backgroundColor: "#0A0A0A",
@@ -103,15 +107,30 @@ export default function About() {
                     background: "radial-gradient(circle, #C01C1C, transparent 70%)",
                   }}
                 />
-                <div style={{ position: "relative", width: "220px", height: "220px" }}>
+                <button 
+                  type="button"
+                  className="ghost-logo" 
+                  onClick={handleLogoClick}
+                  style={{ 
+                    position: "relative", 
+                    width: "220px", 
+                    height: "220px", 
+                    zIndex: 10,
+                    cursor: "grab",
+                    background: "transparent",
+                    border: "none",
+                    padding: 0
+                  }}
+                  aria-label="Animar Logo"
+                >
                   <Image
                     src="/the-ghost-logo-mini-whitout-background.png"
                     alt="The Ghost Logo"
                     fill
-                    className="object-contain"
+                    className="object-contain pointer-events-none"
                     sizes="220px"
                   />
-                </div>
+                </button>
               </div>
 
               {/* Floating badges */}
