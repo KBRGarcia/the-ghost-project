@@ -104,33 +104,12 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   title={label}
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "0.5rem",
-                    backgroundColor: "rgba(42,42,42,0.4)",
-                    border: "1px solid rgba(42,42,42,0.4)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textDecoration: "none",
-                    transition: "all 0.2s ease",
-                    color: "#9A9A9A",
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.backgroundColor = "rgba(192,28,28,0.15)";
-                    el.style.borderColor = "rgba(192,28,28,0.4)";
-                    el.style.color = "#C01C1C";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.backgroundColor = "rgba(42,42,42,0.4)";
-                    el.style.borderColor = "rgba(42,42,42,0.4)";
-                    el.style.color = "#9A9A9A";
-                  }}
+                  className="social-button"
                 >
-                  <Icon size={16} strokeWidth={1.75} />
+                  <div className="social-icon">
+                    <Icon size={16} strokeWidth={1.75} />
+                  </div>
+                  <span className="social-text">{label}</span>
                 </a>
               ))}
             </div>
@@ -219,6 +198,56 @@ export default function Footer() {
             grid-template-columns: 1fr !important;
             gap: 2rem !important;
           }
+        }
+
+        .social-button {
+          display: flex;
+          align-items: center;
+          height: 36px;
+          width: 36px;
+          background-color: rgba(42, 42, 42, 0.4);
+          border: 1px solid rgba(42, 42, 42, 0.4);
+          border-radius: 0.5rem;
+          overflow: hidden;
+          text-decoration: none;
+          transition: all 0.3s ease-out;
+          color: #9A9A9A;
+        }
+
+        .social-button:hover {
+          width: 145px;
+          background-color: rgba(192, 28, 28, 0.15);
+          border-color: rgba(192, 28, 28, 0.4);
+        }
+
+        .social-button .social-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 36px;
+          width: 36px;
+          min-width: 36px;
+          transition: all 0.3s ease-out;
+        }
+
+        .social-button:hover .social-icon {
+          color: #C01C1C;
+        }
+
+        .social-button .social-text {
+          font-family: var(--font-space-grotesk), sans-serif;
+          font-size: 0.875rem;
+          font-weight: 500;
+          white-space: nowrap;
+          opacity: 0;
+          transform: translateX(-15px);
+          transition: all 0.3s ease-out;
+          color: #C01C1C;
+        }
+
+        .social-button:hover .social-text {
+          opacity: 1;
+          transform: translateX(0);
         }
       `}</style>
     </footer>
