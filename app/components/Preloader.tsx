@@ -13,54 +13,21 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   return (
     <div
       ref={containerRef}
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 9999,
-        backgroundColor: "#0A0A0A",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      className="fixed inset-0 z-[9999] bg-ghost-dark flex items-center justify-center"
     >
-      <div style={{ position: "relative", width: "160px", height: "160px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div className="relative w-[160px] h-[160px] flex items-center justify-center">
         {/* Anillos decorativos para la animación de carga */}
+        <div className="preloader-ring absolute -inset-5 rounded-full border-2 border-ghost-red" />
         <div 
-          className="preloader-ring"
-          style={{
-            position: "absolute",
-            inset: "-20px",
-            borderRadius: "50%",
-            border: "2px solid #C01C1C",
-          }}
-        />
-        <div 
-          className="preloader-ring"
-          style={{
-            position: "absolute",
-            inset: "-40px",
-            borderRadius: "50%",
-            border: "1px solid rgba(192,28,28,0.5)",
-            animationDelay: "400ms", // Usaremos CSS fallbacks o Animejs controlará estos a través de clases compartidas
-          }}
+          className="preloader-ring absolute -inset-10 rounded-full border border-ghost-red/50"
+          style={{ animationDelay: "400ms" }} // Animejs controlará estos de requerirlo
         />
         
         {/* Glow de fondo */}
-        <div
-          style={{
-            position: "absolute",
-            inset: "-60px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(192,28,28,0.15), transparent 70%)",
-            filter: "blur(20px)",
-          }}
-        />
+        <div className="absolute -inset-[60px] rounded-full blur-[20px] bg-[radial-gradient(circle,rgba(192,28,28,0.15),transparent_70%)]" />
 
         {/* Logo central */}
-        <div 
-          className="preloader-logo" 
-          style={{ position: "relative", width: "100%", height: "100%", zIndex: 10 }}
-        >
+        <div className="preloader-logo relative w-full h-full z-10">
           <Image
             src="/the-ghost-logo-mini-whitout-background.png"
             alt="Loading..."

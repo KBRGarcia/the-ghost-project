@@ -47,105 +47,42 @@ export default function Contact() {
     setSubmitted(true);
   };
 
-  const inputStyle: React.CSSProperties = {
-    padding: "0.75rem 1rem",
-    backgroundColor: "#1A1A1A",
-    border: "1px solid rgba(42,42,42,0.5)",
-    borderRadius: "0.75rem",
-    color: "#F0F0F0",
-    fontSize: "0.875rem",
-    outline: "none",
-    width: "100%",
-    transition: "border-color 0.2s ease",
-    fontFamily: "inherit",
-  };
+  const inputClasses = "w-full p-3 bg-ghost-dark-3 border border-ghost-gray/50 rounded-xl text-ghost-text text-sm outline-none transition-colors duration-200 focus:border-ghost-red/50 font-sans";
 
   return (
     <section
       id="contacto"
-      style={{
-        padding: "7rem 1.5rem",
-        backgroundColor: "#0A0A0A",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="py-28 px-6 bg-ghost-dark relative overflow-hidden"
     >
       {/* Bg glow */}
       <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "600px",
-          height: "280px",
-          opacity: 0.05,
-          filter: "blur(80px)",
-          background: "radial-gradient(ellipse, #C01C1C, transparent)",
-          pointerEvents: "none",
-        }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[280px] opacity-5 blur-[80px] pointer-events-none bg-[radial-gradient(ellipse,var(--ghost-red),transparent)]"
       />
 
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div className="max-w-[1280px] mx-auto relative z-10">
         {/* Header */}
-        <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <span
-            style={{
-              display: "inline-block",
-              color: "#C01C1C",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              marginBottom: "1rem",
-            }}
-          >
+        <div className="animate-on-scroll text-center mb-16">
+          <span className="inline-block text-ghost-red text-xs font-semibold tracking-widest uppercase mb-4">
             — Contáctanos —
           </span>
-          <h2
-            style={{
-              fontFamily: "var(--font-space-grotesk), sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 700,
-              color: "#F0F0F0",
-              marginBottom: "1rem",
-            }}
-          >
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold text-ghost-text mb-4">
             Hablemos de tu{" "}
             <span className="gradient-text">próximo proyecto</span>
           </h2>
-          <p style={{ color: "#9A9A9A", fontSize: "1.05rem", maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
+          <p className="text-ghost-text-muted text-[1.05rem] max-w-[520px] mx-auto leading-relaxed">
             Cuéntanos tu idea y te responderemos en menos de 24 horas con una
             propuesta inicial sin compromiso.
           </p>
         </div>
 
-        <div
-          className="contact-grid"
-          style={{ display: "grid", gridTemplateColumns: "2fr 3fr", gap: "2.5rem" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-10 contact-grid">
           {/* Left: Contact Info */}
-          <div className="animate-on-scroll" style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <div
-              style={{
-                padding: "1.75rem",
-                borderRadius: "1rem",
-                backgroundColor: "#111111",
-                border: "1px solid rgba(42,42,42,0.5)",
-              }}
-            >
-              <h3
-                style={{
-                  fontFamily: "var(--font-space-grotesk), sans-serif",
-                  color: "#F0F0F0",
-                  fontSize: "1.125rem",
-                  fontWeight: 700,
-                  marginBottom: "1.5rem",
-                }}
-              >
+          <div className="animate-on-scroll flex flex-col gap-6">
+            <div className="p-7 rounded-2xl bg-ghost-dark-2 border border-ghost-gray/50">
+              <h3 className="font-display text-ghost-text text-lg font-bold mb-6">
                 Información de contacto
               </h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+              <div className="flex flex-col gap-5">
                 {contactInfo.map((item) => {
                   const Icon = item.icon;
                   return (
@@ -154,34 +91,16 @@ export default function Contact() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "1rem",
-                        textDecoration: "none",
-                      }}
+                      className="flex items-center gap-4 no-underline group"
                     >
-                      <div
-                        style={{
-                          width: "48px",
-                          height: "48px",
-                          borderRadius: "0.75rem",
-                          backgroundColor: "rgba(192,28,28,0.1)",
-                          border: "1px solid rgba(192,28,28,0.2)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexShrink: 0,
-                          transition: "all 0.2s ease",
-                        }}
-                      >
-                        <Icon size={20} color="#C01C1C" strokeWidth={1.5} />
+                      <div className="w-12 h-12 rounded-xl bg-ghost-red/10 border border-ghost-red/20 flex items-center justify-center shrink-0 transition-all duration-200 group-hover:bg-ghost-red/20 group-hover:border-ghost-red/40">
+                        <Icon size={20} className="text-ghost-red" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <div style={{ fontSize: "0.7rem", color: "#9A9A9A", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                        <div className="text-[0.7rem] text-ghost-text-muted uppercase tracking-widest mb-0.5">
                           {item.label}
                         </div>
-                        <div style={{ color: "#F0F0F0", fontSize: "0.875rem", fontWeight: 500 }}>
+                        <div className="text-ghost-text text-sm font-medium group-hover:text-ghost-red-light transition-colors">
                           {item.value}
                         </div>
                       </div>
@@ -192,32 +111,13 @@ export default function Contact() {
             </div>
 
             {/* Availability */}
-            <div
-              style={{
-                padding: "1.25rem",
-                borderRadius: "1rem",
-                backgroundColor: "rgba(34,197,94,0.05)",
-                border: "1px solid rgba(34,197,94,0.2)",
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-              }}
-            >
-              <div
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  borderRadius: "50%",
-                  backgroundColor: "#22c55e",
-                  flexShrink: 0,
-                  animation: "pulse-green 2s ease-in-out infinite",
-                }}
-              />
+            <div className="p-5 rounded-2xl bg-green-500/5 border border-green-500/20 flex items-center gap-4">
+              <div className="w-3 h-3 rounded-full bg-green-500 shrink-0 animate-pulse" />
               <div>
-                <div style={{ color: "#F0F0F0", fontSize: "0.875rem", fontWeight: 600 }}>
+                <div className="text-ghost-text text-sm font-semibold mb-0.5">
                   Disponibles para nuevos proyectos
                 </div>
-                <div style={{ color: "#9A9A9A", fontSize: "0.75rem" }}>
+                <div className="text-ghost-text-muted text-xs">
                   Tiempo de respuesta &lt; 24h
                 </div>
               </div>
@@ -227,46 +127,14 @@ export default function Contact() {
           {/* Right: Form */}
           <div className="animate-on-scroll">
             {submitted ? (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "1rem",
-                  padding: "3rem",
-                  borderRadius: "1rem",
-                  backgroundColor: "#111111",
-                  border: "1px solid rgba(192,28,28,0.3)",
-                  textAlign: "center",
-                  minHeight: "400px",
-                }}
-              >
-                <div
-                  style={{
-                    width: "64px",
-                    height: "64px",
-                    borderRadius: "50%",
-                    backgroundColor: "rgba(192,28,28,0.1)",
-                    border: "1px solid rgba(192,28,28,0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <CheckCircle2 size={32} color="#C01C1C" strokeWidth={1.5} />
+              <div className="flex flex-col items-center justify-center gap-4 p-12 rounded-2xl bg-ghost-dark-2 border border-ghost-red/30 text-center min-h-[400px]">
+                <div className="w-16 h-16 rounded-full bg-ghost-red/10 border border-ghost-red/30 flex items-center justify-center mb-2">
+                  <CheckCircle2 size={32} className="text-ghost-red" strokeWidth={1.5} />
                 </div>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-space-grotesk), sans-serif",
-                    fontSize: "1.5rem",
-                    fontWeight: 700,
-                    color: "#F0F0F0",
-                  }}
-                >
+                <h3 className="font-display text-2xl font-bold text-ghost-text">
                   ¡Mensaje recibido!
                 </h3>
-                <p style={{ color: "#9A9A9A" }}>
+                <p className="text-ghost-text-muted">
                   El equipo de The Ghost te contactará pronto.
                 </p>
                 <button
@@ -274,18 +142,7 @@ export default function Contact() {
                     setSubmitted(false);
                     setForm({ name: "", email: "", project: "", message: "" });
                   }}
-                  style={{
-                    marginTop: "1rem",
-                    padding: "0.75rem 1.5rem",
-                    backgroundColor: "#C01C1C",
-                    color: "#fff",
-                    fontWeight: 600,
-                    borderRadius: "0.75rem",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "0.875rem",
-                    transition: "background-color 0.2s ease",
-                  }}
+                  className="mt-4 px-6 py-3 bg-ghost-red text-white font-semibold rounded-xl border-none cursor-pointer text-sm transition-colors hover:bg-ghost-red-light"
                 >
                   Enviar otro mensaje
                 </button>
@@ -293,22 +150,11 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                style={{
-                  padding: "1.75rem",
-                  borderRadius: "1rem",
-                  backgroundColor: "#111111",
-                  border: "1px solid rgba(42,42,42,0.5)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1.25rem",
-                }}
+                className="p-7 rounded-2xl bg-ghost-dark-2 border border-ghost-gray/50 flex flex-col gap-5"
               >
-                <div
-                  className="form-row"
-                  style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}
-                >
-                  <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
-                    <label htmlFor="contact-name" style={{ color: "#9A9A9A", fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 form-row">
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="contact-name" className="text-ghost-text-muted text-[0.7rem] font-semibold uppercase tracking-widest">
                       Nombre *
                     </label>
                     <input
@@ -319,11 +165,11 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Tu nombre"
-                      style={inputStyle}
+                      className={inputClasses}
                     />
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
-                    <label htmlFor="contact-email" style={{ color: "#9A9A9A", fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="contact-email" className="text-ghost-text-muted text-[0.7rem] font-semibold uppercase tracking-widest">
                       Email *
                     </label>
                     <input
@@ -334,13 +180,13 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="tu@email.com"
-                      style={inputStyle}
+                      className={inputClasses}
                     />
                   </div>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
-                  <label htmlFor="contact-project" style={{ color: "#9A9A9A", fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="contact-project" className="text-ghost-text-muted text-[0.7rem] font-semibold uppercase tracking-widest">
                     Tipo de Proyecto
                   </label>
                   <select
@@ -348,7 +194,7 @@ export default function Contact() {
                     name="project"
                     value={form.project}
                     onChange={handleChange}
-                    style={{ ...inputStyle, appearance: "none" }}
+                    className={`${inputClasses} appearance-none`}
                   >
                     <option value="">Selecciona una opción...</option>
                     <option value="web">Aplicación Web</option>
@@ -360,8 +206,8 @@ export default function Contact() {
                   </select>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem" }}>
-                  <label htmlFor="contact-message" style={{ color: "#9A9A9A", fontSize: "0.7rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="contact-message" className="text-ghost-text-muted text-[0.7rem] font-semibold uppercase tracking-widest">
                     Mensaje *
                   </label>
                   <textarea
@@ -372,43 +218,19 @@ export default function Contact() {
                     required
                     rows={5}
                     placeholder="Cuéntanos sobre tu proyecto, objetivos y cualquier detalle relevante..."
-                    style={{ ...inputStyle, resize: "none" }}
+                    className={`${inputClasses} resize-none`}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  style={{
-                    width: "100%",
-                    padding: "1rem",
-                    backgroundColor: "#C01C1C",
-                    color: "#fff",
-                    fontWeight: 700,
-                    fontSize: "1rem",
-                    borderRadius: "0.75rem",
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "all 0.2s ease",
-                    fontFamily: "inherit",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "0.5rem",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = "#E02A2A";
-                    (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 32px rgba(192,28,28,0.35)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = "#C01C1C";
-                    (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                  }}
+                  className="w-full p-4 bg-ghost-red hover:bg-ghost-red-light text-white font-bold text-base rounded-xl border-none cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 hover:shadow-[0_12px_32px_rgba(192,28,28,0.35)] mt-2"
                 >
                   <Send size={18} strokeWidth={2} />
                   Enviar Mensaje
                 </button>
 
-                <p style={{ textAlign: "center", fontSize: "0.75rem", color: "#9A9A9A" }}>
+                <p className="text-center text-xs text-ghost-text-muted mt-2">
                   Al enviar, aceptas que el equipo de The Ghost te contactará.
                 </p>
               </form>
@@ -416,17 +238,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes pulse-green {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-        @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; }
-          .form-row { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }

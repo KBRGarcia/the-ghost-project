@@ -23,93 +23,37 @@ export default function Navbar() {
 
   return (
     <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        transition: "all 0.3s ease",
-        backgroundColor: scrolled ? "rgba(10,10,10,0.96)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(42,42,42,0.6)" : "none",
-        boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.5)" : "none",
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0A0A0A]/96 backdrop-blur-md border-b border-[#2A2A2A]/60 shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
+          : "bg-transparent border-b-transparent shadow-none"
+      }`}
     >
-      <nav
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "1rem 1.5rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <nav className="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link
-          href="#hero"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.75rem",
-            textDecoration: "none",
-          }}
-        >
-          <div style={{ position: "relative", width: "40px", height: "40px" }}>
+        <Link href="#hero" className="flex items-center gap-3 no-underline">
+          <div className="relative w-10 h-10">
             <Image
               src="/the-ghost-logo-mini-whitout-background.png"
               alt="The Ghost Logo"
               fill
               className="object-contain"
               priority
+              sizes="40px"
             />
           </div>
-          <span
-            style={{
-              fontFamily: "var(--font-space-grotesk), sans-serif",
-              fontSize: "1.2rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              color: "#F0F0F0",
-            }}
-          >
-            THE{" "}
-            <span style={{ color: "#C01C1C" }}>GHOST</span>
+          <span className="font-display text-[1.2rem] font-bold tracking-widest text-[#F0F0F0]">
+            THE <span className="text-[#C01C1C]">GHOST</span>
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <ul
-          className="md-flex-row"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "2rem",
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
-          }}
-        >
+        <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
           {navLinks.map((link) => (
-            <li key={link.href} style={{ display: "none" }} className="nav-item">
+            <li key={link.href}>
               <Link
                 href={link.href}
-                className="link-underline"
-                style={{
-                  color: "#9A9A9A",
-                  textDecoration: "none",
-                  fontSize: "0.875rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.05em",
-                  transition: "color 0.2s ease",
-                }}
-                onMouseEnter={(e) =>
-                  ((e.target as HTMLElement).style.color = "#F0F0F0")
-                }
-                onMouseLeave={(e) =>
-                  ((e.target as HTMLElement).style.color = "#9A9A9A")
-                }
+                className="link-underline text-[#9A9A9A] no-underline text-sm font-medium tracking-wide transition-colors duration-200 hover:text-[#F0F0F0]"
               >
                 {link.label}
               </Link>
@@ -120,66 +64,29 @@ export default function Navbar() {
         {/* CTA */}
         <Link
           href="#contacto"
-          className="cta-btn-desktop"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            padding: "0.625rem 1.25rem",
-            backgroundColor: "#C01C1C",
-            color: "#fff",
-            fontSize: "0.875rem",
-            fontWeight: 600,
-            borderRadius: "0.5rem",
-            textDecoration: "none",
-            transition: "all 0.2s ease",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.backgroundColor = "#E02A2A";
-            (e.currentTarget as HTMLElement).style.boxShadow =
-              "0 8px 24px rgba(192,28,28,0.35)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.backgroundColor = "#C01C1C";
-            (e.currentTarget as HTMLElement).style.boxShadow = "none";
-          }}
+          className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-[#C01C1C] text-white text-sm font-semibold rounded-lg no-underline transition-all duration-200 hover:bg-[#E02A2A] hover:shadow-[0_8px_24px_rgba(192,28,28,0.35)]"
         >
           Contáctanos
         </Link>
 
         {/* Mobile Hamburger */}
         <button
-          className="hamburger-btn"
+          className="md:hidden flex flex-col gap-[5px] p-2 bg-transparent border-none cursor-pointer"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Abrir menú"
-          style={{
-            display: "none",
-            flexDirection: "column",
-            gap: "5px",
-            padding: "0.5rem",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-          }}
         >
           {[0, 1, 2].map((i) => (
             <span
               key={i}
-              style={{
-                display: "block",
-                width: "24px",
-                height: "2px",
-                backgroundColor: "#F0F0F0",
-                transition: "all 0.3s ease",
-                transform:
-                  mobileOpen
-                    ? i === 0
-                      ? "rotate(45deg) translate(5px, 5px)"
-                      : i === 1
-                      ? "scaleX(0)"
-                      : "rotate(-45deg) translate(5px, -5px)"
-                    : "none",
-              }}
+              className={`block w-6 h-[2px] bg-[#F0F0F0] transition-all duration-300 ${
+                mobileOpen
+                  ? i === 0
+                    ? "rotate-45 translate-y-[7px]"
+                    : i === 1
+                    ? "scale-x-0"
+                    : "-rotate-45 -translate-y-[7px]"
+                  : ""
+              }`}
             />
           ))}
         </button>
@@ -187,40 +94,16 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className="mobile-menu"
-        style={{
-          overflow: "hidden",
-          maxHeight: mobileOpen ? "320px" : "0",
-          opacity: mobileOpen ? 1 : 0,
-          transition: "all 0.3s ease",
-          backgroundColor: "rgba(17,17,17,0.98)",
-          backdropFilter: "blur(12px)",
-          borderTop: "1px solid rgba(42,42,42,0.3)",
-        }}
+        className={`md:hidden overflow-hidden transition-all duration-300 bg-[#111111]/98 backdrop-blur-md border-t border-[#2A2A2A]/30 ${
+          mobileOpen ? "max-h-[320px] opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
-        <ul
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            padding: "1rem 1.5rem",
-            gap: "1rem",
-            listStyle: "none",
-            margin: 0,
-          }}
-        >
+        <ul className="flex flex-col px-6 py-4 gap-4 list-none m-0">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                style={{
-                  display: "block",
-                  color: "#9A9A9A",
-                  textDecoration: "none",
-                  padding: "0.5rem 0",
-                  fontSize: "1rem",
-                  fontWeight: 500,
-                  transition: "color 0.2s",
-                }}
+                className="block text-[#9A9A9A] no-underline py-2 text-base font-medium transition-colors hover:text-[#F0F0F0]"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -230,17 +113,7 @@ export default function Navbar() {
           <li>
             <Link
               href="#contacto"
-              style={{
-                display: "block",
-                textAlign: "center",
-                padding: "0.75rem 1.25rem",
-                backgroundColor: "#C01C1C",
-                color: "#fff",
-                fontWeight: 600,
-                borderRadius: "0.5rem",
-                textDecoration: "none",
-                marginTop: "0.5rem",
-              }}
+              className="block text-center px-5 py-3 bg-[#C01C1C] text-white font-semibold rounded-lg no-underline mt-2 hover:bg-[#E02A2A] transition-colors"
               onClick={() => setMobileOpen(false)}
             >
               Contáctanos
@@ -248,20 +121,6 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-
-      <style>{`
-        @media (min-width: 768px) {
-          .nav-item { display: list-item !important; }
-          .hamburger-btn { display: none !important; }
-          .mobile-menu { display: none !important; }
-          .cta-btn-desktop { display: flex !important; }
-        }
-        @media (max-width: 767px) {
-          .nav-item { display: none !important; }
-          .hamburger-btn { display: flex !important; }
-          .cta-btn-desktop { display: none !important; }
-        }
-      `}</style>
     </header>
   );
 }

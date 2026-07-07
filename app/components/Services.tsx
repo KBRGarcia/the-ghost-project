@@ -66,125 +66,58 @@ export default function Services() {
   return (
     <section
       id="servicios"
-      style={{
-        padding: "7rem 1.5rem",
-        backgroundColor: "#111111",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="py-28 px-6 bg-ghost-dark-2 relative overflow-hidden"
     >
       {/* Top/Bottom decorative lines */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(to right, transparent, rgba(192,28,28,0.4), transparent)" }} />
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(to right, transparent, rgba(192,28,28,0.4), transparent)" }} />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ghost-red/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ghost-red/40 to-transparent" />
 
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div className="max-w-[1280px] mx-auto">
         {/* Header */}
-        <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <span
-            style={{
-              display: "inline-block",
-              color: "#C01C1C",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              marginBottom: "1rem",
-            }}
-          >
+        <div className="animate-on-scroll text-center mb-16">
+          <span className="inline-block text-ghost-red text-xs font-semibold tracking-widest uppercase mb-4">
             — Nuestros Servicios —
           </span>
-          <h2
-            style={{
-              fontFamily: "var(--font-space-grotesk), sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 700,
-              color: "#F0F0F0",
-              marginBottom: "1rem",
-            }}
-          >
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold text-ghost-text mb-4">
             Todo lo que tu{" "}
             <span className="gradient-text">proyecto necesita</span>
           </h2>
-          <p style={{ color: "#9A9A9A", fontSize: "1.1rem", maxWidth: "600px", margin: "0 auto", lineHeight: 1.7 }}>
+          <p className="text-ghost-text-muted text-[1.1rem] max-w-[600px] mx-auto leading-relaxed">
             Cubrimos cada área del desarrollo de software con expertos especializados.
             Un solo equipo para toda tu visión digital.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <article
                 key={service.title}
-                className="card-glow animate-on-scroll"
-                style={{
-                  backgroundColor: "#1A1A1A",
-                  border: "1px solid rgba(42,42,42,0.6)",
-                  borderRadius: "1rem",
-                  padding: "1.75rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1rem",
-                  cursor: "default",
-                }}
+                className="card-glow animate-on-scroll bg-ghost-dark-3 border border-ghost-gray/60 rounded-2xl p-7 flex flex-col gap-4 cursor-default group"
               >
                 {/* Icon */}
-                <div
-                  style={{
-                    width: "56px",
-                    height: "56px",
-                    borderRadius: "0.75rem",
-                    backgroundColor: "rgba(192,28,28,0.1)",
-                    border: "1px solid rgba(192,28,28,0.2)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  <Icon size={24} color="#C01C1C" strokeWidth={1.5} />
+                <div className="w-14 h-14 rounded-xl bg-ghost-red/10 border border-ghost-red/20 flex items-center justify-center transition-all duration-300 group-hover:bg-ghost-red/15 group-hover:border-ghost-red/40">
+                  <Icon size={24} className="text-ghost-red" strokeWidth={1.5} />
                 </div>
 
                 {/* Content */}
                 <div>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-space-grotesk), sans-serif",
-                      fontSize: "1.125rem",
-                      fontWeight: 700,
-                      color: "#F0F0F0",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
+                  <h3 className="font-display text-lg font-bold text-ghost-text mb-2">
                     {service.title}
                   </h3>
-                  <p style={{ color: "#9A9A9A", fontSize: "0.875rem", lineHeight: 1.65 }}>
+                  <p className="text-ghost-text-muted text-sm leading-[1.65]">
                     {service.description}
                   </p>
                 </div>
 
                 {/* Tags */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "auto", paddingTop: "0.5rem" }}>
+                <div className="flex flex-wrap gap-2 mt-auto pt-2">
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      style={{
-                        padding: "0.25rem 0.75rem",
-                        fontSize: "0.75rem",
-                        fontWeight: 500,
-                        borderRadius: "9999px",
-                        backgroundColor: "rgba(42,42,42,0.6)",
-                        color: "#9A9A9A",
-                        border: "1px solid rgba(42,42,42,0.5)",
-                      }}
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-ghost-gray/60 text-ghost-text-muted border border-ghost-gray/50 transition-colors group-hover:border-ghost-red/20"
                     >
                       {tag}
                     </span>

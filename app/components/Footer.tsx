@@ -38,36 +38,16 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      style={{
-        backgroundColor: "#111111",
-        borderTop: "1px solid rgba(42,42,42,0.5)",
-        padding: "4rem 1.5rem 2rem",
-      }}
-    >
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-        <div
-          className="footer-grid animate-on-scroll"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr",
-            gap: "3rem",
-            marginBottom: "3.5rem",
-          }}
-        >
+    <footer className="bg-ghost-dark-2 border-t border-ghost-gray/50 pt-16 px-6 pb-8">
+      <div className="max-w-[1280px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 mb-14 footer-grid animate-on-scroll">
           {/* Brand */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <div className="flex flex-col gap-5">
             <Link
               href="#hero"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                textDecoration: "none",
-                width: "fit-content",
-              }}
+              className="flex items-center gap-3 no-underline w-fit"
             >
-              <div style={{ position: "relative", width: "40px", height: "40px" }}>
+              <div className="relative w-10 h-10">
                 <Image
                   src="/the-ghost-logo-mini-whitout-background.png"
                   alt="The Ghost Logo"
@@ -76,26 +56,18 @@ export default function Footer() {
                   sizes="40px"
                 />
               </div>
-              <span
-                style={{
-                  fontFamily: "var(--font-space-grotesk), sans-serif",
-                  fontSize: "1.2rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  color: "#F0F0F0",
-                }}
-              >
-                THE <span style={{ color: "#C01C1C" }}>GHOST</span>
+              <span className="font-display text-[1.2rem] font-bold tracking-widest text-ghost-text">
+                THE <span className="text-ghost-red">GHOST</span>
               </span>
             </Link>
 
-            <p style={{ color: "#9A9A9A", fontSize: "0.875rem", lineHeight: 1.7, maxWidth: "280px" }}>
+            <p className="text-ghost-text-muted text-sm leading-relaxed max-w-[280px]">
               Equipo de desarrollo de software de alto rendimiento.
               Construimos el futuro digital, línea a línea.
             </p>
 
             {/* Social links */}
-            <div style={{ display: "flex", gap: "0.75rem" }}>
+            <div className="flex gap-3">
               {socialLinks.map(({ label, icon: Icon, href }) => (
                 <a
                   key={label}
@@ -104,12 +76,14 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   title={label}
-                  className="social-button"
+                  className="group flex items-center h-9 w-9 bg-ghost-gray/40 border border-ghost-gray/40 rounded-lg overflow-hidden no-underline transition-all duration-300 ease-out text-ghost-text-muted hover:w-[145px] hover:bg-ghost-red/15 hover:border-ghost-red/40"
                 >
-                  <div className="social-icon">
+                  <div className="flex items-center justify-center h-9 w-9 min-w-[36px] transition-all duration-300 ease-out group-hover:text-ghost-red">
                     <Icon size={16} strokeWidth={1.75} />
                   </div>
-                  <span className="social-text">{label}</span>
+                  <span className="font-display text-sm font-medium whitespace-nowrap opacity-0 -translate-x-[15px] transition-all duration-300 ease-out text-ghost-red group-hover:opacity-100 group-hover:translate-x-0">
+                    {label}
+                  </span>
                 </a>
               ))}
             </div>
@@ -118,37 +92,15 @@ export default function Footer() {
           {/* Links columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4
-                style={{
-                  fontFamily: "var(--font-space-grotesk), sans-serif",
-                  color: "#F0F0F0",
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.15em",
-                  marginBottom: "1.25rem",
-                }}
-              >
+              <h4 className="font-display text-ghost-text text-[0.8rem] font-bold uppercase tracking-[0.15em] mb-5">
                 {category}
               </h4>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <ul className="list-none p-0 m-0 flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="link-underline"
-                      style={{
-                        color: "#9A9A9A",
-                        textDecoration: "none",
-                        fontSize: "0.875rem",
-                        transition: "color 0.2s ease",
-                      }}
-                      onMouseEnter={(e) =>
-                        ((e.target as HTMLElement).style.color = "#F0F0F0")
-                      }
-                      onMouseLeave={(e) =>
-                        ((e.target as HTMLElement).style.color = "#9A9A9A")
-                      }
+                      className="link-underline text-ghost-text-muted no-underline text-sm transition-colors duration-200 hover:text-ghost-text"
                     >
                       {link.label}
                     </Link>
@@ -160,96 +112,18 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div
-          style={{
-            height: "1px",
-            background: "linear-gradient(to right, transparent, rgba(42,42,42,0.8), transparent)",
-            marginBottom: "2rem",
-          }}
-        />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-ghost-gray/80 to-transparent mb-8" />
 
         {/* Copyright bar */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "1rem",
-            flexWrap: "wrap",
-          }}
-        >
-          <p style={{ color: "#9A9A9A", fontSize: "0.8rem" }}>
-            © {year}{" "}
-            <span style={{ color: "#C01C1C", fontWeight: 600 }}>The Ghost</span>.
-            {" "}Todos los derechos reservados.
+        <div className="flex justify-between items-center gap-4 flex-wrap">
+          <p className="text-ghost-text-muted text-xs">
+            © {year} <span className="text-ghost-red font-semibold">The Ghost</span>. Todos los derechos reservados.
           </p>
-          <p style={{ color: "#9A9A9A", fontSize: "0.8rem", display: "flex", alignItems: "center", gap: "0.375rem" }}>
-            Hecho con{" "}
-            <Heart size={13} color="#C01C1C" fill="#C01C1C" />
-            {" "}y{" "}
-            <span style={{ color: "#F0F0F0", fontWeight: 500 }}>Next.js 16</span>
+          <p className="text-ghost-text-muted text-xs flex items-center gap-1.5">
+            Hecho con <Heart size={13} className="text-ghost-red fill-ghost-red" /> y <span className="text-ghost-text font-medium">Next.js 16</span>
           </p>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .footer-grid {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-          }
-        }
-
-        .social-button {
-          display: flex;
-          align-items: center;
-          height: 36px;
-          width: 36px;
-          background-color: rgba(42, 42, 42, 0.4);
-          border: 1px solid rgba(42, 42, 42, 0.4);
-          border-radius: 0.5rem;
-          overflow: hidden;
-          text-decoration: none;
-          transition: all 0.3s ease-out;
-          color: #9A9A9A;
-        }
-
-        .social-button:hover {
-          width: 145px;
-          background-color: rgba(192, 28, 28, 0.15);
-          border-color: rgba(192, 28, 28, 0.4);
-        }
-
-        .social-button .social-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 36px;
-          width: 36px;
-          min-width: 36px;
-          transition: all 0.3s ease-out;
-        }
-
-        .social-button:hover .social-icon {
-          color: #C01C1C;
-        }
-
-        .social-button .social-text {
-          font-family: var(--font-space-grotesk), sans-serif;
-          font-size: 0.875rem;
-          font-weight: 500;
-          white-space: nowrap;
-          opacity: 0;
-          transform: translateX(-15px);
-          transition: all 0.3s ease-out;
-          color: #C01C1C;
-        }
-
-        .social-button:hover .social-text {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      `}</style>
     </footer>
   );
 }
